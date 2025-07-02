@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunchMenu.Models", "LunchMe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunchMenu.Repository", "LunchMenu.Repository\LunchMenu.Repository.csproj", "{8B95F41B-38A6-4FE2-8473-10A025FD4CCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunchMenu.Service", "LunchMenu.Service\LunchMenu.Service.csproj", "{2F5AF5F5-A284-4103-BBEC-46186B75CD4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8B95F41B-38A6-4FE2-8473-10A025FD4CCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B95F41B-38A6-4FE2-8473-10A025FD4CCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B95F41B-38A6-4FE2-8473-10A025FD4CCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F5AF5F5-A284-4103-BBEC-46186B75CD4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F5AF5F5-A284-4103-BBEC-46186B75CD4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F5AF5F5-A284-4103-BBEC-46186B75CD4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F5AF5F5-A284-4103-BBEC-46186B75CD4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
