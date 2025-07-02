@@ -4,9 +4,9 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLibrary1.Service.DTOs.Authentication;
 using LunchMenu.Repository.Helpers.Customer;
 using LunchMenu.Repository.Interfaces;
+using LunchMenu.Service.DTOs.Authentication;
 using LunchMenu.Service.Helpers;
 using LunchMenu.Service.Interfaces;
 
