@@ -18,7 +18,7 @@ namespace LunchMenu.Web.Filters
 
             if (customerType == null || customerType != "special")
             {
-                context.Result = new ForbidResult(); // or RedirectToAction("AccessDenied", "Home")
+                context.Result = new RedirectToActionResult("AccessDenied", "Home", null);
             }
         }
     

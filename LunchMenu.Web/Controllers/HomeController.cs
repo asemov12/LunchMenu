@@ -15,7 +15,10 @@ namespace LunchMenu.Web.Controllers
         {
             _logger = logger;
         }
-
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();

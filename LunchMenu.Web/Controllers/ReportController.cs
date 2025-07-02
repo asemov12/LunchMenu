@@ -35,6 +35,7 @@ namespace LunchMenu.Web.Controllers
             return View(model);
         }
 
+        [UserRole]
         [HttpGet]
         public IActionResult DailyStats()
         {
@@ -44,6 +45,7 @@ namespace LunchMenu.Web.Controllers
             });
         }
 
+        [UserRole]
         [HttpPost]
         public async Task<IActionResult> DailyStats(DailyStatsViewModel model)
         {
