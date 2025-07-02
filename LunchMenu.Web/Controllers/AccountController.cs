@@ -46,8 +46,9 @@ namespace LunchMenu.Web.Controllers
             HttpContext.Session.SetString("Name", user.Name!);
             HttpContext.Session.SetInt32("CustomerId", user.CustomerId ?? 0);
             HttpContext.Session.SetString("Username", model.Username);
+            HttpContext.Session.SetString("Type", user.Type!);  
 
-            return RedirectToAction("Index", "Home"); // or wherever you want to go
+            return RedirectToAction("Index", "Home");
         }
     }
 }

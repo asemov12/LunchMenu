@@ -56,6 +56,7 @@ namespace LunchMenu.Service.Services
                 Success = true,
                 CustomerId = customer.CustomerId,
                 Name = customer.Name,
+                Type = customer.Type,
             };
         }
     }
