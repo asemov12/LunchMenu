@@ -26,7 +26,7 @@ namespace LunchMenu.Models
         public string PasswordHash { get; set; }
 
         [Required(ErrorMessage = "Type is required")]
-        [RegularExpression("^(regular|bringer)$", ErrorMessage = "Type must be 'regular' or 'bringer'")]
+        [RegularExpression("^(regular|special)$", ErrorMessage = "Type must be 'regular' or 'bringer'")]
         public string Type { get; set; }
     }
 }

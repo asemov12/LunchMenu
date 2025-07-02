@@ -8,7 +8,7 @@ namespace LunchMenu.Web.Filters
         public void OnAuthorization(AuthorizationFilterContext context)
         {
             var customerId = context.HttpContext.Session.GetInt32("CustomerId");
-            var customerType = context.HttpContext.Session.GetString("CustomerType");
+            var customerType = context.HttpContext.Session.GetString("Type");
 
             if (customerId == null)
             {
