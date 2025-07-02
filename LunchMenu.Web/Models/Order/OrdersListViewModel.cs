@@ -2,7 +2,7 @@
 {
     public class OrdersListViewModel
     {
-        public List<OrderViewModel> orders;
+        public List<OrderViewModel> Orders;
         public int totalCount;
     }
 

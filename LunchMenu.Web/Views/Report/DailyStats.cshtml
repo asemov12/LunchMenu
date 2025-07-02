@@ -1,0 +1,53 @@
+﻿@using LunchMenu.Web.Models.Reports
+@model DailyStatsViewModel
+
+@{
+    ViewData["Title"] = "Daily Dish Statistics";
+}
+
+<h2 class="mb-3">Daily Dish Statistics</h2>
+
+<form method="post" class="mb-4">
+    <div class="row g-2 align-items-end">
+        <div class="col-auto">
+            <label asp-for="SelectedDate" class="form-label">Select Date</label>
+            <input asp-for="SelectedDate" type="date" class="form-control" />
+            <span asp-validation-for="SelectedDate" class="text-danger"></span>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">View Report</button>
+        </div>
+    </div>
+</form>
+
+@if (Model.Date != null)
+{
+    <h4 class="mb-2">Stats for: @Model.Date.Value.ToString("yyyy-MM-dd")</h4>
+    <p>
+        <strong>Total Orders:</strong> @Model.TotalOrders<br />
+        <strong>Total Dishes:</strong> @Model.TotalDishes<br />
+        <strong>Unique Customers:</strong> @Model.TotalUniqueCustomers
+    </p>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Dish</th>
+                <th>Type</th>
+                <th>Times Ordered</th>
+                <th>Customers</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var dish in Model.Dishes)
+            {
+                <tr>
+                    <td>@dish.Name</td>
+                    <td>@dish.Type</td>
+                    <td>@dish.TimesOrdered</td>
+                    <td>@string.Join(", ", dish.CustomerNames)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

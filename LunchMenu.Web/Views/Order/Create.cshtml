@@ -14,37 +14,58 @@
         <span asp-validation-for="OrderDate" class="text-danger"></span>
     </div>
 
+    <!-- Appetizers -->
     <div class="mb-4">
         <label class="form-label">Appetizers</label>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="SelectedAppetizerId" value="" checked="@(!Model.SelectedAppetizerId.HasValue)" />
+            <label class="form-check-label text-muted">No appetizer</label>
+        </div>
+
         @foreach (var dish in Model.Appetizers)
         {
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="SelectedDishIds" value="@dish.DishId"
-                @(Model.SelectedDishIds.Contains(dish.DishId) ? "checked" : "") />
+                <input class="form-check-input" type="radio" name="SelectedAppetizerId" value="@dish.DishId"
+                @(Model.SelectedAppetizerId == dish.DishId ? "checked" : "") />
                 <label class="form-check-label">@dish.Name</label>
             </div>
         }
     </div>
 
+    <!-- Main Courses -->
     <div class="mb-4">
         <label class="form-label">Main Courses</label>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="SelectedMainCourseId" value="" checked="@(!Model.SelectedMainCourseId.HasValue)" />
+            <label class="form-check-label text-muted">No main course</label>
+        </div>
+
         @foreach (var dish in Model.MainCourses)
         {
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="SelectedDishIds" value="@dish.DishId"
-                @(Model.SelectedDishIds.Contains(dish.DishId) ? "checked" : "") />
+                <input class="form-check-input" type="radio" name="SelectedMainCourseId" value="@dish.DishId"
+                @(Model.SelectedMainCourseId == dish.DishId ? "checked" : "") />
                 <label class="form-check-label">@dish.Name</label>
             </div>
         }
     </div>
 
+    <!-- Desserts -->
     <div class="mb-4">
         <label class="form-label">Desserts</label>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="SelectedDessertId" value="" checked="@(!Model.SelectedDessertId.HasValue)" />
+            <label class="form-check-label text-muted">No dessert</label>
+        </div>
+
         @foreach (var dish in Model.Desserts)
         {
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="SelectedDishIds" value="@dish.DishId"
-                @(Model.SelectedDishIds.Contains(dish.DishId) ? "checked" : "") />
+                <input class="form-check-input" type="radio" name="SelectedDessertId" value="@dish.DishId"
+                @(Model.SelectedDessertId == dish.DishId ? "checked" : "") />
                 <label class="form-check-label">@dish.Name</label>
             </div>
         }

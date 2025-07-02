@@ -1,42 +1,33 @@
-﻿@using LunchMenu.Web.Models.Dishes
-@model DishStatsListViewModel
+﻿@using LunchMenu.Web.Models.Reports
+@model PopularDishesViewModel
+
 @{
     ViewData["Title"] = "Prefered Dishes";
 }
 
-<h2 class="mt-4 mb-3">Most Ordered Dishes</h2>
+<h2 class="mb-3">Popular Dishes</h2>
 
-@if (!Model.Dishes.Any())
-{
-    <div class="alert alert-info">No orders have been placed yet.</div>
-}
-else
-{
-    <div class="mb-3">
-        <strong>Total Orders Across All Dishes:</strong> @Model.TotalOrders
-    </div>
+<p>
+    <strong>Total Orders:</strong> @Model.TotalOrders <br />
+    <strong>Total Dishes:</strong> @Model.TotalDishes
+</p>
 
-    <table class="table table-bordered table-hover">
-        <thead class="table-dark">
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Dish</th>
+            <th>Type</th>
+            <th>Times Ordered</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dish in Model.Dishes)
+        {
             <tr>
-                <th>#</th>
-                <th>Dish Name</th>
-                <th>Type</th>
-                <th>Total Orders</th>
+                <td>@dish.Name</td>
+                <td>@dish.Type</td>
+                <td>@dish.TimesOrdered</td>
             </tr>
-        </thead>
-        <tbody>
-            @for (int i = 0; i < Model.Dishes.Count; i++)
-            {
-                var dish = Model.Dishes[i];
-                <tr>
-                    <td>@(i + 1)</td>
-                    <td>@dish.Name</td>
-                    <td>@dish.Type</td>
-                    <td>@dish.TotalOrders</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-
+        }
+    </tbody>
+</table>

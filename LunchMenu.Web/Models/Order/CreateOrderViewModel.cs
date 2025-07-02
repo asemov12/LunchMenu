@@ -8,7 +8,9 @@ namespace LunchMenu.Web.Models.Order
     {
         public DateTime OrderDate { get; set; }
 
-        public List<int> SelectedDishIds { get; set; } = new();
+        public int? SelectedAppetizerId { get; set; }
+        public int? SelectedMainCourseId { get; set; }
+        public int? SelectedDessertId { get; set; }
 
         public List<DishInfo> Appetizers { get; set; } = new();
         public List<DishInfo> MainCourses { get; set; } = new();

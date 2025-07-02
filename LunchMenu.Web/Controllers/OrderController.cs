@@ -41,7 +41,7 @@ namespace LunchMenu.Web.Controllers
 
             var viewModel = new OrdersListViewModel
             {
-                orders = ordersResponse.Orders
+                Orders = ordersResponse.Orders
                     .OrderBy(o => o.OrderDate)
                     .Select(o => new OrderViewModel
                     {
@@ -90,11 +90,16 @@ namespace LunchMenu.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateOrderViewModel model)
         {
-            if (model.SelectedDishIds == null || model.SelectedDishIds.Count < 1 || model.SelectedDishIds.Count > 3)
-            {
-                ModelState.AddModelError("", "You must select between 1 and 3 dishes.");
-            }
-            var dishIds = model.SelectedDishIds;
+
+            var dishIds = new List<int>();
+            if (model.SelectedAppetizerId.HasValue)
+                dishIds.Add(model.SelectedAppetizerId.Value);
+
+            if (model.SelectedMainCourseId.HasValue)
+                dishIds.Add(model.SelectedMainCourseId.Value);
+
+            if (model.SelectedDessertId.HasValue)
+                dishIds.Add(model.SelectedDessertId.Value);
 
             if (!dishIds.Any())
             {
