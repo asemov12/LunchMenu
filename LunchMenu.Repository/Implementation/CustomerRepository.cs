@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LunchMenu.Models;
 using LunchMenu.Repository.Base;
+using LunchMenu.Repository.Helpers;
 using LunchMenu.Repository.Helpers.Customer;
 using LunchMenu.Repository.Interfaces;
 using Microsoft.Data.SqlClient;
@@ -51,12 +52,19 @@ namespace LunchMenu.Repository.Implementation
 
         public Task<Customer> RetrieveByIdAsync(int objectId)
         {
-            throw new NotImplementedException();
+            return base.RetrieveByIdAsync("CustomerId", objectId);
         }
 
         public IAsyncEnumerable<Customer> RetrieveCollectionAsync(CustomerFilter filter)
         {
-            throw new NotImplementedException();
+            Filter commandFilter = new Filter();
+
+            if (filter.Username is not null)
+            {
+                commandFilter.AddCondition("Username", filter.Username);
+            }
+
+            return base.RetrieveCollectionAsync(commandFilter);
         }
 
         public Task<bool> UpdateAsync(int objectId, CustomerUpdate update)
