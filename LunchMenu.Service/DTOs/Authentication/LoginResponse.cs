@@ -11,6 +11,7 @@ namespace LunchMenu.Service.DTOs.Authentication
         public bool Success { get; set; }
         public int? CustomerId { get; set; }
         public string? Name { get; set; }
+        public string? Type { get; set; }
         public string? ErrorMessage { get; set; }
     }
 }
