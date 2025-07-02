@@ -10,4 +10,13 @@
     <ProjectReference Include="..\LunchMenu.Service\LunchMenu.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\Order\" />
+    <Folder Include="Views\Order\" />
+  </ItemGroup>
+
 </Project>
