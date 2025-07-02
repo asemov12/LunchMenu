@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LunchMenu.Models;
 using LunchMenu.Repository.Base;
+using LunchMenu.Repository.Helpers;
 using LunchMenu.Repository.Helpers.Order;
 using LunchMenu.Repository.Interfaces;
 using Microsoft.Data.SqlClient;
@@ -38,22 +39,33 @@ namespace LunchMenu.Repository.Implementation
         }
         public Task<int> CreateAsync(Order entity)
         {
-            throw new NotImplementedException();
+            return base.CreateAsync(entity, "OrderId");
         }
 
         public Task<bool> DeleteAsync(int objectId)
         {
-            throw new NotImplementedException();
+            return base.DeleteAsync("OrderId", objectId);
         }
 
         public Task<Order> RetrieveByIdAsync(int objectId)
         {
-            throw new NotImplementedException();
+            return base.RetrieveByIdAsync("OrderId", objectId);
         }
 
         public IAsyncEnumerable<Order> RetrieveCollectionAsync(OrderFilter filter)
         {
-            throw new NotImplementedException();
+            Filter commandFilter = new Filter();
+
+            if (filter.CustomerId is not null)
+            {
+                commandFilter.AddCondition("CustomerId", filter.CustomerId);
+            }
+            if (filter.OrderDate is not null)
+            {
+                commandFilter.AddCondition("OrderDate", filter.OrderDate);
+            }
+
+            return base.RetrieveCollectionAsync(commandFilter);
         }
 
         public Task<bool> UpdateAsync(int objectId, OrderUpdate update)
