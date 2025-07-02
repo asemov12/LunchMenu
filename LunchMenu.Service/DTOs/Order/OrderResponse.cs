@@ -12,6 +12,5 @@ namespace LunchMenu.Service.DTOs.Order
         public int CustomerId { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime CreatedAt { get; set; }
-        public int TotalDishes { get; set; }
     }
 }
